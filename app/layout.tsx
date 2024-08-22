@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { Noto_Sans_JP } from "next/font/google"
 import "@/app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import Header from "@/components/layouts/Header"
+import Footer from "@/components/layouts/Footer"
 
 const NOTO_SANS_JP = Noto_Sans_JP({ subsets: ["latin"] })
 
@@ -17,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={NOTO_SANS_JP.className}>
+      <body className={"p-4 " + NOTO_SANS_JP.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -25,7 +27,9 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="theme"
         >
-          {children}
+          <Header />
+          <main className="mt-[72px] mb-[40px]">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
