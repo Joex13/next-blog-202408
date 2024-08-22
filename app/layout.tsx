@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={"p-4 " + NOTO_SANS_JP.className}>
+      <body className={NOTO_SANS_JP.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -28,7 +28,7 @@ export default function RootLayout({
           storageKey="theme"
         >
           <Header />
-          <main className="mt-[72px] mb-[40px]">{children}</main>
+          <main className="mt-[72px] mb-[40px] p-4">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
