@@ -3,7 +3,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-import ModeToggle from "@/features/ModeToggle"
+import { ModeToggle } from "@/features/ModeToggle"
 
 export default function Header() {
   return (
@@ -12,9 +12,7 @@ export default function Header() {
         <NavigationMenuList className="flex gap-2">
           <NavigationMenuLink href="/">HOME</NavigationMenuLink>
           <NavigationMenuLink href="/test">TEST</NavigationMenuLink>
-          <NavigationMenuLink href="/matsuokashuzo">
-            松岡修造
-          </NavigationMenuLink>
+          <NavigationMenuLink href="/matsuokashuzo">えらー</NavigationMenuLink>
         </NavigationMenuList>
       </NavigationMenu>
       <ModeToggle />
