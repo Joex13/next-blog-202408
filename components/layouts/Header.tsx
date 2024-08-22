@@ -3,7 +3,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-import ModeToggler from "@/features/ModeToggler"
+import ModeToggle from "@/features/ModeToggle"
 
 export default function Header() {
   return (
@@ -17,7 +17,7 @@ export default function Header() {
           </NavigationMenuLink>
         </NavigationMenuList>
       </NavigationMenu>
-      <ModeToggler />
+      <ModeToggle />
     </header>
   )
 }
