@@ -5,28 +5,20 @@ import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
   const handleClick = () => {
     if (theme === "light") setTheme("dark")
     if (theme === "dark") setTheme("light")
   }
 
-  useEffect(() => {
-    switch (theme) {
-      case "light":
-        setTheme("light")
-        break
-      case "dark":
-        setTheme("dark")
-        break
-      default:
-        setTheme("dark")
-    }
-  }, [])
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
 
   const SunIcon = () => (
     <Sun className="h-[1.2rem] w-[1.4rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -37,7 +29,7 @@ export function ModeToggle() {
   )
 
   return (
-    <Button onClick={handleClick}>
+    <Button className="bg-transparent text-white" onClick={handleClick}>
       {theme === "light" ? <SunIcon /> : <MoonIcon />}
     </Button>
   )
