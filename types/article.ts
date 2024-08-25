@@ -3,4 +3,8 @@ export type Article = {
   title: string
   slug: string
   body: string
+  meta: {
+    // title: string
+    description: string
+  }
 }
