@@ -33,6 +33,19 @@ export const getArticleBySlug = cache(async (slug: string) => {
   return article
 })
 
+export const getAllArticlesBySlug = cache(async (slug: string) => {
+  const { items } = await client.getContents<Article>({
+    appUid: "blog",
+    modelUid: "article",
+    query: {
+      "author.slug": slug,
+      select: ["title"],
+    },
+  })
+  console.log(items)
+  return items
+})
+
 export const getAuthors = cache(async () => {
   const { items } = await client.getContents<Author>({
     appUid: "blog",
@@ -44,12 +57,12 @@ export const getAuthors = cache(async () => {
   return items
 })
 
-export const getAuthorBySlug = cache(async (slug: string) => {
+export const getAuthorBySlug = cache(async (fullName: string) => {
   const author = await client.getFirstContent<Author>({
     appUid: "blog",
     modelUid: "author",
     query: {
-      slug,
+      author: fullName,
       select: ["fullName", "slug"],
     },
   })
