@@ -2,6 +2,7 @@ import "server-only"
 import { createClient } from "newt-client-js"
 import { cache } from "react"
 import type { Article } from "@/types/article"
+import type { Author } from "@/types/author"
 
 const client = createClient({
   spaceUid: process.env.NEWT_SPACE_UID + "",
@@ -30,4 +31,27 @@ export const getArticleBySlug = cache(async (slug: string) => {
     },
   })
   return article
+})
+
+export const getAuthors = cache(async () => {
+  const { items } = await client.getContents<Author>({
+    appUid: "blog",
+    modelUid: "author",
+    query: {
+      select: ["fullName", "slug"],
+    },
+  })
+  return items
+})
+
+export const getAuthorBySlug = cache(async (slug: string) => {
+  const author = await client.getFirstContent<Author>({
+    appUid: "blog",
+    modelUid: "author",
+    query: {
+      slug,
+      select: ["fullName", "slug"],
+    },
+  })
+  return author
 })
