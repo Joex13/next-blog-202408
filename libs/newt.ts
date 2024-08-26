@@ -15,7 +15,7 @@ export const getArticles = cache(async () => {
     appUid: "blog",
     modelUid: "article",
     query: {
-      select: ["_id", "title", "slug", "body"],
+      select: ["_id", "title", "slug", "body", "author"],
     },
   })
   return items
@@ -57,12 +57,12 @@ export const getAuthors = cache(async () => {
   return items
 })
 
-export const getAuthorBySlug = cache(async (fullName: string) => {
+export const getAuthorBySlug = cache(async (slug: string) => {
   const author = await client.getFirstContent<Author>({
     appUid: "blog",
     modelUid: "author",
     query: {
-      author: fullName,
+      slug,
       select: ["fullName", "slug"],
     },
   })

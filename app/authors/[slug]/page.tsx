@@ -1,6 +1,12 @@
-import { getAuthors, getAuthorBySlug, getAllArticlesBySlug } from "@/libs/newt"
+import {
+  getAuthors,
+  getAuthorBySlug,
+  getAllArticlesBySlug,
+  getArticles,
+} from "@/libs/newt"
 import type { Metadata } from "next"
 import type { Author } from "@/types/author"
+import Link from "next/link"
 
 type Props = {
   params: {
@@ -30,27 +36,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Author({ params }: Props) {
   const { slug } = params
   const author = await getAuthorBySlug(slug)
-  const authorsArticles = await getAllArticlesBySlug(slug)
-  if (!author) return
+  const articles = await getArticles()
+  const authorsArticles = articles.filter(
+    (article) => article.author.slug === slug,
+  )
+  if (!articles) return
 
   return (
     <>
-      <h1>{author.fullName}</h1>
+      <h1 className="text-2xl">{author?.fullName}の書いた記事一覧</h1>
       <ul>
-        <li>
-          <a href="">記事とか</a>
-        </li>
-        <li>
-          <a href="">記事とか</a>
-        </li>
-        <li>
-          <a href="">記事とか</a>
-        </li>
-        <li>
-          <a href="">記事とか</a>
-        </li>
         {authorsArticles.map((article) => {
-          return <li key={article.slug}>{article.title}</li>
+          return (
+            <li key={article.slug}>
+              <Link href={`/articles/${article.slug}`}>{article.title}</Link>
+            </li>
+          )
         })}
       </ul>
       {/* <div dangerouslySetInnerHTML={{ __html: author.body }} /> */}
