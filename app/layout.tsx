@@ -28,7 +28,9 @@ export default function RootLayout({
           storageKey="theme"
         >
           <Header />
-          <main className="mt-[72px] mb-[40px] p-4">{children}</main>
+          <main className="mt-[72px] mb-[40px] h-[calc(100vh-72px-40px)] overflow-y-scroll px-4">
+            {children}
+          </main>
           <Footer />
           <Background />
         </ThemeProvider>
