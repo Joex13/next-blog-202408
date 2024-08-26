@@ -16,7 +16,7 @@ export default async function Home() {
           return (
             <li
               key={author.fullName}
-              className="text-green-400 hover:text-green-600 transition"
+              className="text-blue-400 hover:text-blue-600  dark:text-green-400 dark:hover:text-green-600 transition"
             >
               <Link href={`authors/${author.slug}`}>{author.fullName}</Link>
             </li>
