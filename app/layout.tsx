@@ -4,6 +4,7 @@ import "@/app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/layouts/Header"
 import Footer from "@/components/layouts/Footer"
+import Background from "@/components/layouts/Background"
 
 const NOTO_SANS_JP = Noto_Sans_JP({ subsets: ["latin"] })
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           <Header />
           <main className="mt-[72px] mb-[40px] p-4">{children}</main>
           <Footer />
+          <Background />
         </ThemeProvider>
       </body>
     </html>
