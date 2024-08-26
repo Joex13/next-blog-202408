@@ -14,7 +14,7 @@ export default function Header() {
       <NavigationMenu>
         <NavigationMenuList className="flex gap-2">
           {navLinks.map((navLink) => (
-            <Link href={navLink === "home" ? "/" : "/" + navLink}>
+            <Link key={navLink} href={navLink === "home" ? "/" : "/" + navLink}>
               {navLink.toUpperCase()}
             </Link>
           ))}
