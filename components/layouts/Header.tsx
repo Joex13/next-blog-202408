@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import { ModeToggle } from "@/features/ModeToggle"
 
-const routes = ["HOME", "AUTHORS", "CONTACT"]
+const routes = ["home", "authors", "contact"]
 
 export default function Header() {
   return (
@@ -14,7 +14,7 @@ export default function Header() {
         <NavigationMenuList className="flex gap-2">
           {routes.map((route) => (
             <NavigationMenuLink href={route === "HOME" ? "/" : route}>
-              {route}
+              {route.toUpperCase()}
             </NavigationMenuLink>
           ))}
         </NavigationMenuList>
