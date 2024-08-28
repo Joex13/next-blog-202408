@@ -10,7 +10,7 @@ export default function NOTFOUND() {
       router.push("/")
     }, 5000)
     return () => clearTimeout(timer)
-  }, [])
+  }, [router])
 
   return (
     <>
