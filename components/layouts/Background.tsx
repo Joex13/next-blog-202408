@@ -9,7 +9,7 @@ import { loadSlim } from "@tsparticles/slim" // if you are going to use `loadSli
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 import { useTheme } from "next-themes"
 
-const Background = memo(() => {
+const Background = memo(function BackgroundBase() {
   const [init, setInit] = useState(false)
   const { theme } = useTheme()
 
