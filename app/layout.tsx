@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Noto_Sans_JP } from "next/font/google"
 import "@/app/globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/features/provider/theme-provider"
 import Header from "@/components/layouts/Header"
 import Footer from "@/components/layouts/Footer"
 import Background from "@/components/layouts/Background"
