@@ -1,4 +1,4 @@
-import ArticleCard from "@/components/layouts/ArticleCard"
+import ArticleCard from "@/features/common/ArticleCard"
 import { getArticles } from "@/libs/newt"
 import { Metadata } from "next"
 import Link from "next/link"

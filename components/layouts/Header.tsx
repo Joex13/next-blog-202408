@@ -3,7 +3,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-import { ModeToggle } from "@/features/ModeToggle"
+import { ModeToggle } from "@/features/common/ModeToggle"
 import Link from "next/link"
 
 const navLinks = ["home", "authors", "contact"]
