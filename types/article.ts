@@ -14,4 +14,5 @@ export type Article = {
     fullName: string
     slug: string
   }
+  coverImage: any
 } & Content

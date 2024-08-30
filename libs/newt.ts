@@ -15,7 +15,7 @@ export const getArticles = cache(async () => {
     appUid: "blog",
     modelUid: "article",
     query: {
-      select: ["_id", "title", "slug", "body", "author"],
+      select: ["_id", "title", "slug", "body", "author", "coverImage"],
     },
   })
   return items
